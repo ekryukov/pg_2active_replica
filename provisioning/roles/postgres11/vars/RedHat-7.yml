@@ -1,0 +1,11 @@
+---
+__postgresql_version: "11"
+__postgresql_data_dir: "/var/lib/pgsql/data"
+__postgresql_bin_path: "/usr/pgsql-11/bin/"
+__postgresql_config_path: "/var/lib/pgsql/data"
+__postgresql_daemon: postgresql-11
+__postgresql_packages:
+  - postgresql11
+  - postgresql11-server
+  - postgresql11-contrib
+  - postgresql11-libs

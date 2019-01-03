@@ -27,7 +27,5 @@
         name: ['vim', 'curl', 'git', 'htop', 'mc', 'python-pip', 'unzip', 'bash-completion']
         state: latest
 
-    - name: Add repository for later versions of Postgres.
-      yum:
-        name: https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm
-        state: present
+  roles:
+    - postgres11
