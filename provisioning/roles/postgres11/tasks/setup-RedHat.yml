@@ -1,0 +1,18 @@
+---
+
+- name: Install the repository RPM
+  yum:
+    name: https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm
+    state: present
+
+- name: Ensure PostgreSQL packages are installed.
+  yum:
+    name: "{{ postgresql_packages }}"
+    state: present
+    enablerepo: "{{ postgresql_enablerepo | default(omit, true) }}"
+
+- name: Ensure PostgreSQL Python libraries are installed.
+  package:
+    name: "{{ postgresql_python_library }}"
+    state: present
+    enablerepo: "{{ postgresql_enablerepo | default(omit, true) }}"
