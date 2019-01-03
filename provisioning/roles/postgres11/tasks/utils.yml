@@ -1,0 +1,14 @@
+---
+- name: Download package
+  unarchive:
+    src: https://github.com/julmon/pg_activity/archive/v1.4.0.zip
+    dest: /tmp/
+    remote_src: yes
+
+- name: Install pg_activity
+  become: yes
+  command: /usr/bin/python setup.py install --with-man
+  args:
+    chdir: /tmp/pg_activity-1.4.0
+
+
