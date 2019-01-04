@@ -1,7 +1,4 @@
 ---
-# Ansible playbook for a Drupal LAMP server.
-#
-# @author Jeff Geerling (2014).
 
 - hosts: pg01a
   gather_facts: yes

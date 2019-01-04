@@ -1,2 +1,2 @@
-pg01a ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+pg01a ansible_host=90.145.224.100 ansible_port=7785 ansible_user=root
 
