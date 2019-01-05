@@ -1,4 +1,5 @@
-# pg_2active_replica
+# Postgres BiDirectional Replication 
+
 ## Requirements
 
 VirtualBox - https://www.virtualbox.org/wiki/Downloads
