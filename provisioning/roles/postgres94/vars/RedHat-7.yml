@@ -1,0 +1,11 @@
+---
+__postgresql_version: "94"
+__postgresql_data_dir: "/var/lib/pgsql/9.4-bdr/data"
+__postgresql_backup_dir: "/var/lib/pgsql/9.4-bdr/backups"
+__postgresql_bin_path: "/usr/pgsql-9.4/bin/"
+__postgresql_config_path: "/var/lib/pgsql/9.4-bdr/data"
+__postgresql_daemon: postgresql-9.4
+__postgresql_packages:
+  - postgresql-bdr94
+  - postgresql-bdr94-bdr
+  - postgresql-bdr94-server

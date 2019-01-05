@@ -21,8 +21,8 @@
 
     - name: Install common packages
       yum:
-        name: ['vim', 'curl', 'git', 'htop', 'mc', 'python-pip', 'unzip', 'bash-completion']
+        name: ['vim', 'curl', 'git', 'htop', 'mc', 'python-pip', 'unzip', 'bash-completion', 'python-devel', 'readline-devel', 'zlib-devel', 'yum-utils']
         state: latest
 
   roles:
-    - postgres11
+    - postgres94

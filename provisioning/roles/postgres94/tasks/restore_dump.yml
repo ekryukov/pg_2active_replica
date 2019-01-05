@@ -1,0 +1,12 @@
+---
+- name: Copy dump
+  copy:
+    src: bpc01.dmp
+    dest: "{{ postgresql_backup_dir }}/dump.sql"
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_user }}"
+    mode: u=rw,g=r,o=r
+
+- name: Importing Postgres data
+  become_user: "{{ postgresql_user }}"
+  shell: "psql -U postgres -h 127.0.0.1 -d {{ postgresql_databases[0].name }} < {{ postgresql_backup_dir }}/dump.sql"

@@ -1,0 +1,27 @@
+---
+
+- name: remove the postgres11 package
+  yum:
+    name: postgresql11
+    state: absent
+
+- name: Install the repository RPM
+  yum:
+    name: http://packages.2ndquadrant.com/postgresql-bdr94-2ndquadrant/yum-repo-rpms/postgresql-bdr94-2ndquadrant-redhat-latest.noarch.rpm
+    state: present
+
+- rpm_key:
+    state: present
+    key: https://dl.2ndquadrant.com/gpg-key.asc
+
+- name: Ensure PostgreSQL packages are installed.
+  yum:
+    name: "{{ postgresql_packages }}"
+    state: present
+    enablerepo: "{{ postgresql_enablerepo | default(omit, true) }}"
+
+- name: Ensure PostgreSQL Python libraries are installed.
+  package:
+    name: "{{ postgresql_python_library }}"
+    state: present
+    enablerepo: "{{ postgresql_enablerepo | default(omit, true) }}"
