@@ -1,5 +1,6 @@
 # Postgres BiDirectional Replication 
-
+Postgres 9.4 
+BDR 1.0.7 - https://wiki.postgresql.org/wiki/BDR_User_Guide
 ## Requirements
 
 VirtualBox - https://www.virtualbox.org/wiki/Downloads
