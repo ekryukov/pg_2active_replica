@@ -22,6 +22,7 @@
 - import_tasks: databases.yml
 - import_tasks: users.yml
 - import_tasks: restore_dump.yml
+- import_task: init_bdr.yml
 
 # Utils PostgreSQL.
 - import_tasks: utils.yml

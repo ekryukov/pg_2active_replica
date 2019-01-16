@@ -1,4 +1,9 @@
-#pg01a ansible_host=90.145.224.100 ansible_port=7785 ansible_user=root
-pg01a ansible_host=127.0.0.1 ansible_port=2222
-# pg02a ansible_host=192.168.122.1
+pg01a ansible_host=192.168.122.21
+# pg01a ansible_host=127.0.0.1 ansible_port=2222
+pg02a ansible_host=192.168.122.12
 
+[node1]
+pg01a
+
+[node2]
+pg02a

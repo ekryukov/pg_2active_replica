@@ -1,0 +1,4 @@
+---
+- name: Init bdr
+  command: psql -U  {{ postgresql_user }} -c "SELECT bdr.bdr_group_create(local_node_name := 'node1', node_external_dsn := 'port=5432 dbname=svip_db host=10.8.110.21'
+    );"
