@@ -99,3 +99,10 @@ postgresql_users:
 #   login_unix_socket: # defaults to 1st of postgresql_unix_socket_directories
 #   port: # defaults to not set
 #   state: # defaults to 'present'
+
+init_main_bdr: "SELECT bdr.bdr_group_create(local_node_name := 'main', node_external_dsn := 'port=5432 dbname={{ postgresql_databases[0].name }} host={{ ansible_host }}');"
+init_node_bdr: "SELECT bdr.bdr_group_join(local_node_name := 'node1', node_external_dsn := 'port=5432 dbname={{ postgresql_databases[0].name }} host={{ hostvars.main.ansible_ssh_host }}', join_using_dsn := 'port=5432 dbname={{ postgresql_databases[0].name }} host={{ ansible_ssh_host }}');"
+
+bdr_init:
+  - create extension btree_gist;
+  - create extension bdr;

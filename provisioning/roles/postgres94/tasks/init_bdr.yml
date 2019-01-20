@@ -1,4 +1,12 @@
 ---
-- name: Init bdr
-  command: psql -U  {{ postgresql_user }} -c "SELECT bdr.bdr_group_create(local_node_name := 'node1', node_external_dsn := 'port=5432 dbname=svip_db host=10.8.110.21'
-    );"
+- name: Init BDR
+  command: psql -U  {{ postgresql_user }} -d {{ postgresql_databases[0].name }} -c "{{ item }}"
+  with_items: {{ bdr_init }}
+
+- name: Create BDR Main Node
+  command: psql -U  {{ postgresql_user }} -d {{ postgresql_databases[0].name }} -c "{{ init_main_bdr }}"
+  when: "'node' not in group_names"
+
+- name: Create BDR  Node
+  command: psql -U  {{ postgresql_user }} -d {{ postgresql_databases[0].name }} -c "{{ init_node_bdr }}"
+  when: "'main' not in group_names"

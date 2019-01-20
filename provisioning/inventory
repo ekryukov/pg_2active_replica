@@ -1,9 +1,8 @@
-pg01a ansible_host=192.168.122.21
-# pg01a ansible_host=127.0.0.1 ansible_port=2222
-pg02a ansible_host=192.168.122.12
+pg01a ansible_host=10.8.110.21
+pg02a ansible_host=10.8.110.12
 
-[node1]
+[main]
 pg01a
 
-[node2]
+[node]
 pg02a

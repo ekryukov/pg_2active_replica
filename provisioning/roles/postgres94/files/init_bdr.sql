@@ -10,11 +10,6 @@ SELECT bdr.bdr_node_join_wait_for_ready();
 SELECT bdr.bdr_group_join(
     local_node_name := 'node2',
     node_external_dsn := 'dbname=svip_db host=10.8.110.12',
-    join_using_dsn := 'dbname=svip_db host=10.8.110.21'
+    join_using_dsn := 'dbname= host={{ ansible_host }}'
 );
 
-SELECT bdr.internal_begin_join(
-        'bdr_group_join',
-        local_node_name,
-        CASE WHEN node_local_dsn IS NULL THEN node_external_dsn ELSE node_local_dsn END,
-        join_using_dsn);
